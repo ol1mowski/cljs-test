@@ -3,7 +3,7 @@
   "name": "codelinesjs-api",
   "builds": [
     {
-      "src": "package.json",
+      "src": "dist/server.js",
       "use": "@vercel/node",
       "config": {
         "includeFiles": ["dist/**", "public/**"]
@@ -13,35 +13,35 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "dist/server.js"
+      "dest": "/dist/server.js"
     },
     {
       "src": "/health",
-      "dest": "dist/server.js"
+      "dest": "/dist/server.js"
     },
     {
       "src": "/diagnostic",
-      "dest": "dist/server.js"
+      "dest": "/dist/server.js"
     },
     {
       "src": "/assets/(.*)",
-      "dest": "dist/public/assets/$1"
+      "dest": "/dist/public/assets/$1"
     },
     {
       "src": "/favicon.png",
-      "dest": "dist/public/favicon.png"
+      "dest": "/dist/public/favicon.png"
     },
     {
       "src": "/vite.svg",
-      "dest": "dist/public/vite.svg"
+      "dest": "/dist/public/vite.svg"
     },
     {
       "src": "/(.*\\.(js|css|png|svg|jpg|jpeg|gif|ico))",
-      "dest": "dist/public/$1"
+      "dest": "/dist/public/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "dist/public/index.html"
+      "dest": "/dist/public/index.html"
     }
   ],
   "env": {
