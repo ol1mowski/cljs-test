@@ -22,8 +22,8 @@
     }
   ],
   "rewrites": [
-    { "source": "/assets/(.*)", "destination": "/public/assets/$1" },
-    { "source": "/(.*\\.(js|css|png|svg|ico|json))", "destination": "/public/$1" },
+    { "source": "/assets/:path*", "destination": "/public/assets/:path*" },
+    { "source": "/:file(\\.js|\\.css|\\.png|\\.svg|\\.ico|\\.json)$", "destination": "/public/:file" },
     { "source": "/favicon.ico", "destination": "/public/favicon.png" },
     { "source": "/(.*)", "destination": "/dist/server.js" }
   ]
