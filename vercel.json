@@ -1,21 +1,19 @@
 {
   "version": 2,
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
   "builds": [
     {
-      "src": "dist/server.js",
+      "src": "package.json",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/assets/(.*)",
-      "dest": "dist/server.js"
+      "dest": "/dist/server.js"
     },
     {
       "src": "/(.*\\.js|.*\\.css|.*\\.png|.*\\.svg|.*\\.ico|.*\\.json)",
-      "dest": "dist/server.js"
+      "dest": "/dist/server.js"
     },
     {
       "src": "/api/(.*)",
@@ -24,11 +22,11 @@
         "Access-Control-Allow-Methods": "GET,OPTIONS,PATCH,DELETE,POST,PUT",
         "Access-Control-Allow-Headers": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, Authorization"
       },
-      "dest": "dist/server.js"
+      "dest": "/dist/server.js"
     },
     {
       "src": "/(.*)",
-      "dest": "dist/server.js"
+      "dest": "/dist/server.js"
     }
   ]
 }
