@@ -22,6 +22,9 @@
     }
   ],
   "rewrites": [
+    { "source": "/assets/(.*)", "destination": "/public/assets/$1" },
+    { "source": "/(.*\\.(js|css|png|svg|ico|json))", "destination": "/public/$1" },
+    { "source": "/favicon.ico", "destination": "/public/favicon.png" },
     { "source": "/(.*)", "destination": "/dist/server.js" }
   ]
 }
