@@ -1,35 +1,35 @@
 {
   "version": 2,
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "node",
   "builds": [
     {
       "src": "dist/server.js",
       "use": "@vercel/node"
-    },
-    {
-      "src": "public/**",
-      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/assets/(.*)",
-      "dest": "/public/assets/$1"
+      "dest": "dist/server.js"
     },
     {
-      "src": "/favicon.ico",
-      "dest": "/public/favicon.png"
-    },
-    {
-      "src": "/(.+\\.(js|css|png|svg|ico|json))",
-      "dest": "/public/$1"
+      "src": "/(.*\\.js|.*\\.css|.*\\.png|.*\\.svg|.*\\.ico|.*\\.json)",
+      "dest": "dist/server.js"
     },
     {
       "src": "/api/(.*)",
-      "dest": "/dist/server.js"
+      "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET,OPTIONS,PATCH,DELETE,POST,PUT",
+        "Access-Control-Allow-Headers": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, Authorization"
+      },
+      "dest": "dist/server.js"
     },
     {
       "src": "/(.*)",
-      "dest": "/dist/server.js"
+      "dest": "dist/server.js"
     }
   ]
 }
