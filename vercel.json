@@ -1,51 +1,9 @@
 {
   "version": 2,
-  "name": "codelinesjs-api",
-  "builds": [
-    {
-      "src": "dist/server.js",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": ["dist/**", "public/**"]
-      }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/dist/server.js"
-    },
-    {
-      "src": "/health",
-      "dest": "/dist/server.js"
-    },
-    {
-      "src": "/diagnostic",
-      "dest": "/dist/server.js"
-    },
-    {
-      "src": "/assets/(.*)",
-      "dest": "/dist/public/assets/$1"
-    },
-    {
-      "src": "/favicon.png",
-      "dest": "/dist/public/favicon.png"
-    },
-    {
-      "src": "/vite.svg",
-      "dest": "/dist/public/vite.svg"
-    },
-    {
-      "src": "/(.*\\.(js|css|png|svg|jpg|jpeg|gif|ico))",
-      "dest": "/dist/public/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/dist/public/index.html"
-    }
-  ],
-  "env": {
-    "NODE_ENV": "production",
-    "VERCEL": "1"
-  }
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api" },
+    { "source": "/(.*)", "destination": "/api" }
+  ]
 } 
